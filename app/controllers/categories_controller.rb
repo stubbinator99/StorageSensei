@@ -12,11 +12,14 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    @other_categories = Category.all
     @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
+    @other_categories = Category.where.not(id: params[:id])
+    @categories = Category.all
   end
 
   # POST /categories or /categories.json
@@ -65,6 +68,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(:name, :description, :parent)
     end
 end

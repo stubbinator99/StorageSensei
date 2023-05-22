@@ -13,10 +13,12 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   # GET /items/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /items or /items.json

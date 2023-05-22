@@ -22,6 +22,12 @@
   </div>
 
   <div>
+    <%= form.label :parent, style: "display: block" %>
+    <% options = options_from_collection_for_select(@other_categories, 'id', 'name') %>
+    <%= form.select :parent, options, :include_blank => true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

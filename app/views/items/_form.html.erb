@@ -23,7 +23,8 @@
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
+    <% options = options_from_collection_for_select(@categories, 'id', 'name') %>
+    <%= form.select :category_id, options %>
   </div>
 
   <div>

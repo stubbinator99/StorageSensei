@@ -9,4 +9,9 @@
     <%= category.description %>
   </p>
 
+  <p>
+    <strong>Parent:</strong>
+    <%= Category.find_by(id: category.parent).name %>
+  </p>
+
 </div>
