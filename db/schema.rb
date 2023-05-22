@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_002345) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_140533) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -41,22 +41,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_002345) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "type"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id", null: false
+    t.index ["users_id"], name: "index_lists_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.date "created_at", null: false
-    t.date "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "categories", "categories", column: "parent"
   add_foreign_key "items", "categories"
   add_foreign_key "list_items", "items"
   add_foreign_key "list_items", "lists"
+  add_foreign_key "lists", "users", column: "users_id"
 end
