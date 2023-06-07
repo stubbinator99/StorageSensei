@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_140533) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_194003) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_140533) do
   create_table "lists", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "type", default: 0, null: false
+    t.integer "list_type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "users_id", null: false

@@ -17,7 +17,7 @@ class ListsTest < ApplicationSystemTestCase
     fill_in "Created at", with: @list.created_at
     fill_in "Description", with: @list.description
     fill_in "Name", with: @list.name
-    fill_in "Type", with: @list.type
+    fill_in "Type", with: @list.list_type
     fill_in "Updated at", with: @list.updated_at
     click_on "Create List"
 
@@ -32,7 +32,7 @@ class ListsTest < ApplicationSystemTestCase
     fill_in "Created at", with: @list.created_at
     fill_in "Description", with: @list.description
     fill_in "Name", with: @list.name
-    fill_in "Type", with: @list.type
+    fill_in "Type", with: @list.list_type
     fill_in "Updated at", with: @list.updated_at
     click_on "Update List"
 
